@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>woiudeshop x choqzshop - Order Top Up</title>
+<style>
+  body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5}
+  .header{background:#000;color:#fff;text-align:center;padding:14px;font-weight:bold;font-size:1.2em}
+  .container{background:#fff;padding:20px;margin:20px auto;max-width:420px;border-radius:6px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
+  label{display:block;margin-top:12px;font-weight:600}
+  input,select,button{width:100%;padding:9px;margin-top:5px;border:1px solid #ccc;border-radius:4px}
+  button{background:#000;color:#fff;border:none;margin-top:16px;cursor:pointer}
+  button:hover{background:#333}
+  a{color:#0066cc}
+</style>
+</head>
+<body>
+<div class="header">woiudeshop x choqzshop</div>
+<div class="container">
+  <h3>Form Order</h3>
+  <label>ID Pemain
+    <input type="text" id="uid" placeholder="Masukkan ID">
+  </label>
+  <label>Nominal Diamond
+  <select>
+    <option>12 DM - Rp2.000</option>
+    <option>12 DM - Rp2.000</option>
+    <option>15 DM - Rp3.000</option>
+    <option>30 DM - Rp6.000</option>
+    <option>55 DM - Rp8.900</option>
+    <option>75 DM - Rp10.900</option>
+    <option>80 DM - Rp12.000</option>
+    <option>95 DM - Rp15.000</option>
+    <option>100 DM - Rp16.000</option>
+    <option>120 DM - Rp17.600</option>
+    <option>125 DM - Rp18.600</option>
+    <option>145 DM - Rp20.500</option>
+    <option>150 DM - Rp21.600</option>
+    <option>170 DM - Rp25.600</option>
+    <option>190 DM - Rp27.600</option>
+    <option>200 DM - Rp29.500</option>
+   <option>260 DM - Rp37.500</option>
+    <option>280 DM - Rp39.500</option>
+    <option>300 DM - Rp43.400</option>
+   <option>355 DM - Rp49.000</option>
+      <option>360 DM - Rp50.000</option>
+<option>405 DM - Rp57.000</option>
+    <option>565 DM - Rp79.000</option>
+<option>720 DM - Rp98.000</option>
+<option>1000 DM - Rp137.000</option>
+<option>1145 DM - Rp157.000</option>
+<option>1580 DM - Rp213.000</option>
+<option>2000 DM - Rp269.000</option>
+<option>3000 DM - Rp302.000</option>
+  </select>
+</label>
+  </label>
+  <label>Metode Pembayaran
+    <select id="bayar">
+      <option>QRIS</option>
+      <option>DANA</option>
+      <option>OVO</option>
+      <option>Bank VA</option>
+    </select>
+  </label>
+  <label>Kode Voucher (opsional)
+    <input type="text" id="voucher" placeholder="jika ada">
+  </label>
+  <button onclick="buatLink()">Order via WA</button>
+  <p id="out"></p>
+</div>
+
+<script>
+function buatLink(){
+  const uid=document.getElementById('uid').value.trim();
+  const nominal=document.getElementById('nominal').value.trim();
+  const bayar=document.getElementById('bayar').value;
+  const voucher=document.getElementById('voucher').value.trim();
+  if(!uid||!nominal){alert('ID & nominal wajib');return;}
+  let txt=`Order ChoqzShop%0AID: ${uid}%0ANominal: ${nominal}%0ABayar: ${bayar}`;
+  if(voucher) txt+=`%0AVoucher: ${voucher}`;
+  const link=`https://wa.me/6283126088118?text=${txt}`;
+  document.getElementById('out').innerHTML=`<a href="${link}" target="_blank">Buka WhatsApp & kirim order</a>`;
+}
+</script>
+</body>
+</html>
